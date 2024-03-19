@@ -5,9 +5,9 @@ import Box from './component/Box';
 // 1. 박스 2개(타이틀, 사진, 결과)
 // 2. 가위, 바위, 보 버튼이 있다
 // 3. 버튼을 클릭하면 클릭한 값이 박스에 보임
-// 4. 컴퓨터는 랜덤하게 아이템 선택이 된다.
+// 4. 컴퓨터는 랜덤하게 아이템 선택이 된다
 // 5. 3,4의 결과를 가지고 승패를 가른다
-// 6. 승패 결과에 따라 박스 테두리 색이 바뀐다.(이기면 초록, 지면 빨강)
+// 6. 승패 결과에 따라 박스 테두리 색이 바뀐다(이기면 초록, 지면 빨강)
 
 const choice = {
   rock :{
@@ -33,11 +33,29 @@ function App() {
     setUserSelect(choice[userChoice])
     let comChoice = randomChoice()
 	setComSelect(comChoice)
-	judgement(choice[userChoice],comChoice)
+	setResult(judgement(choice[userChoice],comChoice))
   }
 
+  // 가바보 로직 ->삼항연산자로 할거임. 일단 기본적인 로직은 이럴걸
+  // if user.name == com.name -> draw
+  // else if user.name == ✊, com.name == ✋ -> user lose
+  // else if user.name == ✊, com.name == ✌️ -> user win
+  // else if user.name == ✋, com.name == ✌️ -> user lose
+  // else if user.name == ✋, com.name == ✊ -> user win
+  // else if user.name == ✌️, com.name == ✊ -> user lose
+  // else user.name == ✌️, com.name == ✋ -> user win
+
   const judgement = (user,com) => {
-	console.log(user, com)
+	if (user.name == com.name){
+		return "DRAW"
+	} else if (user.name == "Rock") {
+		return com.name == "Paper" ? "LOSE" : "WIN"
+	} else if (user.name == "Paper") {
+		return com.name == "Scissors" ? "LOSE" : "WIN"
+	} else if (user.name == "Scissors") {
+		return com.name == "Rock" ? "LOSE" : "WIN"
+	}
+
   }
   const randomChoice = () => {
 	let itemArr = Object.keys(choice)
