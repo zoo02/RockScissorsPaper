@@ -21,13 +21,18 @@ const choice = {
   scissors : {
     name : "Scissors",
     img : "https://blog.kakaocdn.net/dn/HfURw/btqXKvOTNWK/gWTwPXEg9QzSV0ilOuwuak/img.png"
-  }
+  },
+//   default : {
+//     name : "RPS",
+//     img : "https://e1.pxfuel.com/desktop-wallpaper/700/352/desktop-wallpaper-white-backgrounds-%C2%B7%E2%91%A0-full-backgrounds-for-white-background.jpg"
+//   }
 }
 
 function App() {
   const [userSelect, setUserSelect] = useState(null)
   const [comSelect, setComSelect] = useState(null)
   const [result, setResult] = useState("")
+
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice])
@@ -36,16 +41,8 @@ function App() {
 	setResult(judgement(choice[userChoice],comChoice))
   }
 
-  // 가바보 로직 ->삼항연산자로 할거임. 일단 기본적인 로직은 이럴걸
-  // if user.name == com.name -> draw
-  // else if user.name == ✊, com.name == ✋ -> user lose
-  // else if user.name == ✊, com.name == ✌️ -> user win
-  // else if user.name == ✋, com.name == ✌️ -> user lose
-  // else if user.name == ✋, com.name == ✊ -> user win
-  // else if user.name == ✌️, com.name == ✊ -> user lose
-  // else user.name == ✌️, com.name == ✋ -> user win
 
-  const judgement = (user,com) => {
+const judgement = (user,com) => {
 	if (user.name == com.name){
 		return "DRAW"
 	} else if (user.name == "Rock") {
@@ -56,8 +53,11 @@ function App() {
 		return com.name == "Rock" ? "LOSE" : "WIN"
 	}
 
+
+
+
   }
-  const randomChoice = () => {
+const randomChoice = () => {
 	let itemArr = Object.keys(choice)
 	let randomItem = Math.floor(Math.random() * itemArr.length)
 	let final = itemArr[randomItem]
@@ -68,7 +68,10 @@ function App() {
     <div>
       <div className='main'>
         <Box title="YOU" item={userSelect} result={result} />
-        <Box title="COMPUTER" item={comSelect} />
+        <Box title="COMPUTER" item={comSelect} 
+            result={result == "WIN" ? "LOSE" : 
+            result == "LOSE" ? "WIN" : 
+            result == "DRAW" ? "DRAW" : null} />
       </div>
 
       <div className='main'>
