@@ -1,5 +1,4 @@
 .box {
-    /* border: 1px solid black; */
     border-radius: 50px;
     width: 250px;
     height: 350px;
@@ -10,13 +9,11 @@
     align-items: center;
     flex-direction: column;
     background-color: white;
-    /* min-height: 350px; */
 }
 
 .item-img {
     width: 200px;
     height: auto;
-    /* border: 1px solid rgb(127, 127, 127); */
 }
 
 .propsResult {
@@ -39,17 +36,6 @@
 .main {
     display: flex;
     justify-content: center;
-}
-
-.main button {
-    margin: 30px;
-    width: 100px;
-    height: 80px;
-    font-size: xx-large;
-    border: 1px none;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: black;
 }
 .main button {
     margin: 30px;

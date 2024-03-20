@@ -22,10 +22,6 @@ const choice = {
     name : "Scissors",
     img : "https://blog.kakaocdn.net/dn/HfURw/btqXKvOTNWK/gWTwPXEg9QzSV0ilOuwuak/img.png"
   },
-//   default : {
-//     name : "RPS",
-//     img : "https://e1.pxfuel.com/desktop-wallpaper/700/352/desktop-wallpaper-white-backgrounds-%C2%B7%E2%91%A0-full-backgrounds-for-white-background.jpg"
-//   }
 }
 
 function App() {
@@ -41,7 +37,6 @@ function App() {
 	setResult(judgement(choice[userChoice],comChoice))
   }
 
-
 const judgement = (user,com) => {
 	if (user.name == com.name){
 		return "DRAW"
@@ -52,9 +47,6 @@ const judgement = (user,com) => {
 	} else if (user.name == "Scissors") {
 		return com.name == "Rock" ? "LOSE" : "WIN"
 	}
-
-
-
 
   }
 const randomChoice = () => {
