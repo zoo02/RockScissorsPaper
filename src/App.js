@@ -30,7 +30,7 @@ function App() {
   const [result, setResult] = useState("")
 
 
-  const play = (userChoice) => {
+const play = (userChoice) => {
     setUserSelect(choice[userChoice])
     let comChoice = randomChoice()
 	setComSelect(comChoice)
@@ -49,6 +49,7 @@ const judgement = (user,com) => {
 	}
 
   }
+
 const randomChoice = () => {
 	let itemArr = Object.keys(choice)
 	let randomItem = Math.floor(Math.random() * itemArr.length)

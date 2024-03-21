@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 const Box = (props) => {
-    let resultClass = '';
+    let resultClass = ''
     if (props.result === 'WIN') {
-        resultClass = 'win';
+        resultClass = 'win'
     } else if (props.result === 'LOSE') {
-        resultClass = 'lose';
+        resultClass = 'lose'
     } else if (props.result === 'DRAW') {
-        resultClass = 'draw';
+        resultClass = 'draw'
     }
 
     return (
@@ -18,7 +18,7 @@ const Box = (props) => {
                 <h2 className={`propsResult ${resultClass}`}>{props.result}</h2>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Box;
+export default Box
